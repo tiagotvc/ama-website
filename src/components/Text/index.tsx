@@ -9,6 +9,8 @@ interface TextProps {
 
 export const TextInput = ({ children, alias, color = "black" }:TextProps) => {
     return (
-       <Text color={color} alias={alias}>{children}</Text> 
+       <Text data-testid="text-component" color={color} alias={alias}>{children}</Text> 
     )
 }
+
+export default TextInput;
