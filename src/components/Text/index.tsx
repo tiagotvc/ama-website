@@ -1,15 +1,23 @@
-import React from 'react';
+import React, { HTMLProps, ReactNode } from 'react';
 import { Text } from './styles'
 
-interface TextProps {
-    alias: string;
-    children: React.ReactNode;
-    color?: string;
+export interface TextProps {
+    variant: string;
+    children?: string;
+    fontColor?: string;
+    uppercase?: boolean;
+    textdecoration?: string;
+    textShadow?: string;
 }
 
-export const TextInput = ({ children, alias, color = "black" }:TextProps) => {
+export const TextInput: React.FC<TextProps> = ({ children, variant, fontColor, uppercase, textdecoration, textShadow}) => {
+
+    function handleSentence(): string {
+        if (uppercase) return children.toUpperCase();
+        return children;
+    }
     return (
-       <Text data-testid="text-component" color={color} alias={alias}>{children}</Text> 
+       <Text data-testid="text-component" fontColor={fontColor} variant={variant} textdecoration={textdecoration} textShadow={textShadow}>{handleSentence()}</Text> 
     )
 }
 

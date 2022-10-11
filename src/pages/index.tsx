@@ -1,12 +1,14 @@
 import React from 'react';
 import { TextInput } from 'components/Text/index';
+import Button from '@/components/Button';
+import InputText from '@/components/InputText';
+import { LogoType } from '@/components/Logotype/Logotype';
+import Layout from '@/components/Layout/Layout';
 
-export default function Home() {
+export default function MyApp({ Component, pageProps}) {
   return (
-    <div>
-      <TextInput alias="header">Isso é um titulo</TextInput>
-      <TextInput alias="subheader">Isso é um subtitulo</TextInput>
-      <TextInput alias="subheader">Isso é um subtitulo</TextInput>
-    </div>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   )
 }
